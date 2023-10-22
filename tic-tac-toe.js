@@ -14,14 +14,7 @@ window.onload = function() {
 
     // Define winning conditions for the game
     const winningConditions = [
-        [0, 1, 2],
-        [1, 4, 7],
-        [2, 4, 6],
-        [3, 4, 5],
-        [2, 5, 8],
-        [0, 4, 8],
-        [6, 7, 8],
-        [0, 3, 6],
+        [0, 1, 2], [1, 4, 7], [2, 4, 6], [3, 4, 5], [2, 5, 8], [0, 4, 8], [6, 7, 8], [0, 3, 6]
     ];
 
     // Set the class "square" to each square element on the game board
@@ -79,4 +72,19 @@ window.onload = function() {
             currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
         }
     }
+
+    // Attach event listener to the start button to reset the game
+    startButton.addEventListener('click', () => {
+        // Reset square values, status message, and remove the "you-won" class
+        squareValues = ['', '', '', '', '', '', '', '', ''];
+        statusElement.innerHTML = 'Move your mouse over a square and click to play an X or an O.';
+        statusElement.classList.remove('you-won');
+
+        // Clear the content and classes of all squares
+        gameSquares.forEach(square => {
+            square.innerText = '';
+            square.classList.remove('X');
+            square.classList.remove('O');
+        });
+    });
 }
