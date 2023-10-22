@@ -12,11 +12,6 @@ window.onload = function() {
     let currentPlayer = 'X'; // Represents the current player ('X' or 'O')
     let squareValues = ['', '', '', '', '', '', '', '', '']; // Stores the values in each square
 
-    // Define winning conditions for the game
-    const winningConditions = [
-        [0, 1, 2], [1, 4, 7], [2, 4, 6], [3, 4, 5], [2, 5, 8], [0, 4, 8], [6, 7, 8], [0, 3, 6]
-    ];
-
     // Set the class "square" to each square element on the game board
     for (let squareIndex = 0; squareIndex <= 8; squareIndex++) {
         gameSquares[squareIndex].setAttribute("class", "square");
@@ -38,6 +33,11 @@ window.onload = function() {
         });
     });
 
+        // Define winning conditions for the game
+        const winningConditions = [
+            [0, 1, 2], [1, 4, 7], [2, 4, 6], [3, 4, 5], [2, 5, 8], [0, 4, 8], [6, 7, 8], [0, 3, 6]
+        ];
+        
     // Function to check if a player has won
     function checkWin() {
         for (let conditionIndex = 0; conditionIndex <= 7; conditionIndex++) {
